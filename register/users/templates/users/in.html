@@ -1,0 +1,26 @@
+{%extends 'users/base.html'%}
+
+{%block title%}
+  Страница про нас
+{%endblock%}
+
+
+
+{%block content%}
+  <div class="features">
+    <h1>Новые пользователи</h1>
+
+{%for el in users %}
+<div class="alert alert-warning">
+
+    {{el.title}}
+    {{el.password}}
+
+</div>
+{%endfor%}
+
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'regis' %}">New User</a>
+      </li>
+
+{%endblock%}

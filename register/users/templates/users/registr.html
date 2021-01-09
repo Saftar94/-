@@ -1,0 +1,40 @@
+{%extends 'users/base.html'%}
+
+{%block title%}
+  Зарегистрируйтесь на сайте
+{%endblock%}
+
+
+
+{%block content%}
+<div class="features">
+    <h1>Новые пользователи</h1>
+
+ <form action="" method="POST">
+     {% csrf_token %}
+     <p>{{ form.title }}</p>
+     <p>{{ form.password }}</p>
+     <span>{{ error }}</span>
+
+     <button class="btn btn-success" type="submit">Добавить пользователя</button>
+
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'register' %}">Регистрация</a>
+      </li>
+
+
+    {% if user.is_authenticated %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'account_logout' %}">Выход</a><br>
+        </li>
+
+    {% else %}
+
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'us_login' %}">Вход</a>
+        </li>
+    {% endif %}
+ </form>
+</div>
+{%endblock%}
